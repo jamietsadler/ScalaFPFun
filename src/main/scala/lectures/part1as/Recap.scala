@@ -62,7 +62,7 @@ object Recap extends App {
 
 
   // fucntional programming
-  val incrementer = new Function1[Int, Int] {
+  val incrementer = new ((Int) => Int) {
     override def apply(v1: Int): Int = v1 + 1
 
   }
