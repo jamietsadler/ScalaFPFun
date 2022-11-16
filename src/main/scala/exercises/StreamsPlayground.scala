@@ -73,8 +73,6 @@ class Cons[+A](hd: A, tl: => MyStream[A]) extends MyStream[A] {
 }
 
 
-
-
 object MyStream {
   def from[A](start: A)(generator: A => A): MyStream[A] =
     new Cons(start, MyStream.from(generator(start))(generator))
@@ -85,5 +83,17 @@ object StreamsPlayground extends App {
   val naturals = MyStream.from(1)(_ + 1)
   println(naturals.head)
   println(naturals.tail.head)
+
+
+  def fibonacci(first: BigInt, second: BigInt): MyStream[BigInt] =
+    new Cons(first, fibonacci(second, first + second))
+
+  println(fibonacci(1, 1).take(100).toList())
+
+  def erathosthenes(numbers: MyStream[Int]): MyStream[Int] =
+    if (numbers.isEmpty) numbers
+    else new Cons(numbers.head, erathosthenes(numbers.tail.filter(_ % numbers.head != 0) ))
+
+  println(erathosthenes((MyStream.from(2)(_ + 1))).take(100).toList())
 
 }
