@@ -1,0 +1,3 @@
+package lecture.pastafp
+
+object Monads extends App {
