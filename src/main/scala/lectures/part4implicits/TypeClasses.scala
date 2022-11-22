@@ -55,7 +55,7 @@ object TypeClasses extends App{
     override def apply(a: User, b:User): Boolean = a.name == b.name && a.email == b.email
   }
 
-  object HTMLSerialiser {
+  /*object HTMLSerialiser {
     def serialise[T](value: T)(implicit serialiser: HTMLSerialiser[T]): String =
       serialiser.serialise(value)
   }
@@ -64,8 +64,8 @@ object TypeClasses extends App{
     override def serialise(value: Int): String = s"<div style:color = blue.$value</div>"
   }
 
-  println(HTMLSerialiser.serialise(42))or
-
+  println(HTMLSerialiser.serialise(42))
+  */
 
 
 
