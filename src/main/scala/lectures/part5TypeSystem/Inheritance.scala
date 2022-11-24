@@ -64,5 +64,5 @@ object Inheritance extends App{
   val col = new White
   println(col.print)
 
-
+  
 }
